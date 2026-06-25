@@ -11,31 +11,40 @@ st.set_page_config(
 # CSS
 st.markdown("""
 <style>
+    /* Tarjeta de situación */
     .scenario-card {
         background: #1e2a3a;
         border-left: 4px solid #0078d4;
         padding: 1.2rem 1.5rem;
         border-radius: 0 8px 8px 0;
         margin-bottom: 1rem;
-        color: #e8edf2;
-    }
-    .scenario-card p, .scenario-card li, .scenario-card blockquote {
         color: #e8edf2 !important;
     }
+    .scenario-card * {
+        color: #e8edf2 !important;
+    }
+
+    /* Criterios de evaluación */
     .criteria-item {
         padding: 0.4rem 0.7rem;
         border-radius: 6px;
         margin: 0.3rem 0;
         font-size: 0.9rem;
+        color: #e8edf2 !important;
     }
     .criteria-ok { background: #1a3d2b; border-left: 3px solid #2ecc71; }
     .criteria-fail { background: #3d1a1a; border-left: 3px solid #e74c3c; }
+    .criteria-item * { color: #e8edf2 !important; }
+
+    /* Puntuación */
     .score-circle {
         font-size: 3.5rem;
         font-weight: 900;
         text-align: center;
         padding: 1rem;
     }
+
+    /* Caja de consejos */
     .tip-box {
         background: #1a2a3a;
         border: 1px solid #0078d4;
@@ -43,6 +52,15 @@ st.markdown("""
         padding: 1rem 1.2rem;
         font-size: 0.88rem;
         margin-top: 1rem;
+        color: #e8edf2 !important;
+    }
+    .tip-box * {
+        color: #e8edf2 !important;
+    }
+
+    /* Alertas nativas de Streamlit */
+    .stAlert p, .stAlert li, .stAlert div {
+        color: inherit !important;
     }
 </style>
 """, unsafe_allow_html=True)
