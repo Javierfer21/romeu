@@ -5,13 +5,14 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-try:
-    import streamlit as st
-    api_key = st.secrets.get("GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
-except Exception:
-    api_key = os.environ.get("GROQ_API_KEY")
 
-client = Groq(api_key=api_key)
+def _get_client():
+    try:
+        import streamlit as st
+        api_key = st.secrets.get("GROQ_API_KEY") or os.environ.get("GROQ_API_KEY")
+    except Exception:
+        api_key = os.environ.get("GROQ_API_KEY")
+    return Groq(api_key=api_key)
 
 
 SYSTEM_PROMPT = """Eres un evaluador experto en Power BI y en la técnica de prompting.
@@ -69,6 +70,7 @@ Objetivo: {scenario['goal']}
 Evalúa el prompt según los criterios anteriores y devuelve el JSON de evaluación.
 """
 
+    client = _get_client()
     response = client.chat.completions.create(
         model="llama-3.3-70b-versatile",
         messages=[
