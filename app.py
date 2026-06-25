@@ -23,6 +23,13 @@ st.markdown("""
     .scenario-card * {
         color: #e8edf2 !important;
     }
+    .scenario-card code {
+        background: #2d4058 !important;
+        color: #7dd3fc !important;
+        padding: 0.1rem 0.4rem;
+        border-radius: 4px;
+        font-size: 0.85em;
+    }
 
     /* Criterios de evaluación */
     .criteria-item {
